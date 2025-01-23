@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Virtual IoT Lab DEI</title>
+    <link
+      rel="icon"
+      href="https://www.vlab.co.in/images/logo.jpg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" type="text/css" href="src/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="exp-changer">
+        <div class="exp-changer-heading">
+          <p class="p-head">IOT Virtual Lab</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="navbar">
+      <div class="navbar1">
+        <a href="../../index.html">Home</a>
+      </div>
+      <div class="navbar-heading">Simulation Window</div>
+      <div class="navbar2">
+        <a href="../simulation_1/index.html">Go Back</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="if-vid">
+        <p class="p-head">Interfacing of Arduino with Push button :</p>
+        <div class="interfacing">
+          <img
+            id="ifimg2"
+            src="./src/images/buzzer/buzzer_static.png"
+            alt="interfacing"
+          />
+          <audio
+            id="myAudio"
+            src="./src/audio/buzzer.mp3"
+            preload="auto"
+          ></audio>
+          <button
+            id="buzzerpushbutton"
+            onclick="changeBuzzerImage();togglePlay();"
+          ></button>
+        </div>
+      </div>
+      <div class="separator"></div>
+      <div class="code">
+        <div class="code-head"><p class="p-head">ARDUINO CODE</p></div>
+        <div>
+          <form action="" method="POST">
+            <textarea id="arduinoCode" readonly>
+int buz = 3; // Buzzer is connected on Pin No. 3
+int but = 4; // Push Button is connected on Pin No. 4
+int val;
+
+void setup( )
+{
+  pinMode(buz, OUTPUT); // Buzzer mode is OUTPUT.
+  pinMode(but, INPUT); // Push Button mode is INPUT.
+}
+
+void loop()
+{
+  val = digitalRead (but); // Reads the value from Push Button whether it is pressed or not.
+  if (val == LOW) 
+  { 
+    digitalWrite(buz,HIGH); // Buzzer is turned ON.
+  }
+  else
+  {
+    digitalWrite(buz,LOW); //  Buzzer is turned OFF.
+  }
+}
+            </textarea>
+          </form>
+        </div>
+        <div class="code-head startStop">
+          <h2 id="pushbuttonPower" onclick="changePowerBuzzer();">
+            Start Simulation
+          </h2>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="src/js/buzzer.js"></script>
+  </body>
+</html>
