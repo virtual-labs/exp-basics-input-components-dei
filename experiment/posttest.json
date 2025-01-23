@@ -2,37 +2,37 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What does a pushbutton do when pressed with a pull-up resistor?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Pin reads HIGH.",
+        "b": "Pin reads LOW.",
+        "c": "Pin alternates states.",
+        "d": "Pin state remains constant."
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect: It reads HIGH when not pressed.",
+        "b": "Correct: The pin reads LOW when pressed.",
+        "c": "Incorrect: It does not alternate unless programmed.",
+        "d": "Incorrect: The state changes when pressed."
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "How does a photoresistor's resistance change in bright light?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Increases.",
+        "b": "Decreases.",
+        "c": "Remains constant.",
+        "d": "Varies randomly."
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect: Resistance decreases in light.",
+        "b": "Correct: Resistance decreases as light increases.",
+        "c": "Incorrect: It varies with light intensity.",
+        "d": "Incorrect: The change is not random."
       },
-      "correctAnswer": "c",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     }
   ]

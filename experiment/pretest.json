@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "How many types of Arduino do we have ?",
+      "question": "How many types of Arduino boards are commonly available?",
       "answers": {
         "a": "4",
         "b": "8",
@@ -10,10 +10,10 @@
         "d": "16"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect: There are more than 4 types. ",
+        "b": "Correct: There are 8 common types, including Uno, Mega, Nano, etc.",
+        "c": "Incorrect: 12 is too high.",
+        "d": "Incorrect: 16 is too high."
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
@@ -27,10 +27,10 @@
         "d": "C/c++"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect: Assembly is not used in typical Arduino programming.",
+        "b": "Incorrect: Python is not the main language for Arduino.",
+        "c": "Incorrect: Arduino is not based on Java.",
+        "d": "Correct: Arduino uses C/C++ for programming."
       },
       "correctAnswer": "d",
       "difficulty": "beginner"
