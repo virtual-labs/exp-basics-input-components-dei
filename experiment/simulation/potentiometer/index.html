@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Virtual IoT Lab DEI</title>
+    <link
+      rel="icon"
+      href="https://www.vlab.co.in/images/logo.jpg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" type="text/css" href="./src/css/style.css" />
+  </head>
+  <body>
+    <header>      
+      <div class="exp-changer">        
+        <div class="exp-changer-heading">
+          <p class="p-head">IOT Virtual Lab</p>
+        </div>
+      </div>
+    </header>    
+
+    <div class="container">
+      <div class="if-vid">
+        <p class="p-head">Interfacing Potentiometer with Arduino</p>
+        <div class="interfacing2">
+          <img
+            id="ifimg2"
+            src="./src/images/buzzer/pot_off.gif"
+            alt="interfacing"
+          />
+          <button id="potClickButton"
+          onclick="changePotentiometerImage()">
+  </button>
+          <button id="buzzerpushbutton"
+          onclick="changeBuzzerImage()">
+  </button>
+          <!-- Slider and LED indicator for potentiometer simulation -->
+          <input type="range" id="potSlider" min="0" max="1023" value="512">
+          <div id="potLed"></div>
+        </div>
+      </div>
+      <div class="separator"></div>
+      <div class="code">
+        <div class="code-head"><p class="p-head">ARDUINO CODE</p></div>
+        <div>
+          <form action="" method="POST">
+            <textarea id="arduinoCode" readonly>
+int potPin = A0; // Potentiometer is connected on Analog Pin A0
+int ledPin = 9;  // LED is connected on Pin No. 9
+int potValue;    // Variable to store potentiometer value
+int ledValue;    // Variable to store LED brightness value
+
+void setup() {
+  pinMode(ledPin, OUTPUT); // LED pin mode is OUTPUT
+  Serial.begin(9600);      // Initialize serial communication
+}
+
+void loop() {
+  potValue = analogRead(potPin);     // Read potentiometer value (0-1023)
+  ledValue = map(potValue, 0, 1023, 0, 255); // Map to LED brightness (0-255)
+  analogWrite(ledPin, ledValue);     // Control LED brightness
+  Serial.println(potValue);          // Print potentiometer value to serial monitor
+  delay(100);                        // Small delay for stability
+}
+</textarea>
+</form>
+</div>
+        <div class="code-head startStop">
+          <h2 id="pushbuttonPower" onclick="changePowerBuzzer();">
+            Start Simulation
+          </h2>
+        </div>
+      </div>
+      <div id="potNotification">
+  Click the potentiometer!
+</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.js"></script>
+    <script>
+      // Initialize CodeMirror editor in read-only mode with an increased height
+      var editor = CodeMirror.fromTextArea(document.getElementById("arduinoCode"), {
+            mode: "text/x-c++src", // For C++/Arduino syntax highlighting
+            lineNumbers: true, // Show line numbers
+            matchBrackets: true, // Highlight matching brackets
+            theme: "default", // You can change the theme
+            readOnly: "nocursor", // Make the editor read-only
+            tabSize: 4,
+            indentUnit: 4,
+        });
+    </script>
+    <script type="text/javascript" src="src/js/buzzer.js"></script>
+  </body>
+</html>

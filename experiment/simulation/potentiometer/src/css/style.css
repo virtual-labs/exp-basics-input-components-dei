@@ -4,7 +4,7 @@ h1{
 }
   
 header{
-  height: 10vh;
+  height: 8vh;
   border-bottom:4px solid cadetblue ;
 }
   
@@ -17,30 +17,20 @@ body{
   height: 100vh;
   width: 100vw;
   margin: 0;
+  overflow: hidden;
 }
-
+ 
 .p-head {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
+  margin-left: 4px;
 }
-
-#pagechanger {
-  border: none;
-  color: cadetblue;
-  font-size: 20px;
-  outline: none;
-  position: relative;
-  top: 2.5vh;
-}
-
-#pagechanger:hover{
-  cursor: pointer;
-}
-
+ 
 .exp-changer {
   display: flex;
   justify-content: center;
+  
 }
 
 .exp-changer-heading {
@@ -52,7 +42,7 @@ body{
   font-size: 20px;
   outline: none;
   position: relative;
-  top: 2.5vh;
+  top: 1.6vh;
 }
 
 .navbar {
@@ -61,12 +51,12 @@ body{
 }
 
 .navbar1{
-  width: 8vw;
+  width: 6%;
   height: 35px;
   color: #ffffff;
   background-color: rgba(4, 59, 79, 0.5);
-  font-size: 1.5vw;
-  border-radius: 0 0 20px 0;
+  font-size: 1.4rem;
+  border-radius: 0 0 0px 0;
   font-family: "Raleway",sans-serif;
   }
 
@@ -93,13 +83,13 @@ body{
   }
 
 .navbar2{
-  width: 8vw;
-  height: 35px;
-  color: #ffffff;
-  background-color: rgba(4, 59, 79, 0.5);
-  font-size: 1.5vw;
-  border-radius: 0 0 0 20px;
-  font-family: "Raleway",sans-serif;
+  width: 7%;
+    height: 35px;
+    color: #ffffff;
+    background-color: rgba(4, 59, 79, 0.5);
+    font-size: 1.4rem;
+    border-radius: 0 0 0 20px;
+    font-family: "Raleway",sans-serif;
 }
   
 .navbar2 a{
@@ -113,136 +103,108 @@ body{
 }
 
 .container {
-  height: 82vh;
+  height: 100%;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 0px;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
   background-color: #F4F5F7;
-}
-.nofled {
-  height: 80vh;
-  width: 100vw;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-.nofledHead {
-  width: 100%;
-  height: 20vh;
-  margin-top: 3.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.nofledBoxContainer {
-  width: 100%;
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.leds {
-  background-color: rgb(46, 64, 92, 0.9);
-  color: white;
-  width: 6.5rem;
-  text-decoration: none;
-  margin: 0 10px 0 10px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: scale(1);
-  transition: all ease-out 0.4s;
-}
-.leds:hover {
-  cursor: pointer;
-  background-color: rgb(46, 64, 92, 1);
-  transform: scale(1.1);
-  transition: all ease-out 0.4s;
 }
 
 .separator {
   border-radius: 20px;
-  height: 60vh;
-  width: 8px;
+  height: 70%;
+  width: 5px;margin-top: 32px;
   background-color: rgba(4, 59, 79, 0.5);
   transition: all 0.4s ease-in;
   transform: scale(1.1);
-}
-.separator:hover {
-  border-radius: 20px;
-  height: 75vh;
-  width: 6px;
-  background-color: rgba(4, 59, 79, 0.5);
-  transition: all 0.4s ease-in;
-  transform: scale(1);
+  margin-left: 10px;
+   
+  
 }
 
 .if-vid {
-  width: 48vw;
-  height: 82vh;
+  width: 50%;
+  height: 100%;
   padding: 3px;
-  /* background-color: rgba(4, 59, 79, 0.1); */
+  /* background-color: red; */
+  
   /* border: 3px solid rgba(4, 59, 79, 0.3); */
   border-radius: 10px;
-  overflow: scroll;
+  overflow: hidden;
+  /* margin-right: 180px; */
 }
 
-.interfacing {
-  margin-left: 10px;
-  width: 100%;
-  max-width: 700px;
-  height: 100%;
-  max-height: 700px;
-  overflow: scroll;
-  /* border: 3px solid rgba(4, 59, 79, 0.3); */
-  border-radius: 10px;
+.interfacing2 {
   position: relative;
 }
 
-.interfacing img {
+.interfacing2 img {
   transition: all 0.4s ease;
-  width: 700px;
+  width: 650px;
   height: auto;
-}
-#pushbutton {
-  background-color: rgba(255, 0, 0, 0);
-  position: absolute;
-  z-index: 5;
-  width: 30px;
-  border: none;
-  height: 30px;
-  margin-left: 568px;
-  margin-top: -209px;
-  cursor: pointer;
-}
-
-#pushbutton2 {
-  background-color: rgba(255, 0, 0, 0);
-  position: absolute;
-  z-index: 5;
-  width: 25px;
-  border: none;
-  height: 30px;
-  margin-left: 362px;
-  margin-top: -426px;
-  cursor: pointer;
+  margin-left: 50px;
+  object-fit: contain; /* Maintain aspect ratio */
+  object-position: center; /* Center the image */
 }
 
 #buzzerpushbutton {
-  background-color: rgba(255, 0, 0, 0);
+  display: none; /* Hide the buzzer button */
+}
+
+#potClickButton {
+  background-color: transparent;
   position: absolute;
   z-index: 5;
-  width: 25px;
+  width: 44px;
+  height: 44px;
   border: none;
-  height: 25px;
-  margin-left: 389px;
-  margin-top: -158px;
   cursor: pointer;
+  left: 400px;
+  top: 91px;
+}
+
+#potNotification {
+  display: none;
+  position: absolute;
+  background: #ffecb3;
+  border: 2px solid #ff9800;
+  color: #222;
+  font-weight: bold;
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px #0004;
+  z-index: 1000;
+  margin-top: 99px;
+  margin-left: -650px;
+}
+
+/* Potentiometer slider styles */
+#potSlider {
+  display: none;
+  position: absolute;
+  left: 390px;
+  top: 70px;
+  width: 80px;
+  z-index: 1001;
+}
+
+/* Potentiometer LED indicator */
+#potLed {
+  display: none;
+  position: absolute;
+  left: 513px;
+  top: 118px;
+  width: 18px;
+  height: 24px;
+  border: none;
+  box-shadow: 1px 0 10px  red;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background: red;
+  opacity: 0;
 }
 
 .code {
@@ -260,8 +222,9 @@ body{
   /* text-transform: uppercase; */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   padding: 5px 30px;
-  border-radius: 15px;
+  border-radius: 4px;
   cursor: pointer;
+  margin-top: 12px;
 }
 
 .code-head {
@@ -284,8 +247,6 @@ body{
   resize: none;
 }
 
-
-
 @media screen and (max-width: 1000px) {
   .navbar1 {
     width: 14vw;
@@ -302,4 +263,25 @@ body{
       width: 0;
       height: 0;
     }
+}
+
+#pagechanger {
+  border: none;
+  color: cadetblue;
+  font-size: 20px;
+  outline: none;
+  position: relative;
+  top: 2.5vh; 
+}
+
+#pagechanger:hover{
+  cursor: pointer;
+}
+
+.CodeMirror {
+  height: 485px; /* Set the height to 500px */
+  border: 1px solid #ddd;
+  font-family: monospace;
+  font-size: 16px;
+  background-color: #f5f5f5;
 }
