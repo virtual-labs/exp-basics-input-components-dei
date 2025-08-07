@@ -1,0 +1,39 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What does a pushbutton do when pressed with a pull-up resistor?",
+      "answers": {
+        "a": "Pin reads HIGH.",
+        "b": "Pin reads LOW.",
+        "c": "Pin alternates states.",
+        "d": "Pin state remains constant."
+      },
+      "explanations": {
+        "a": "Incorrect: It reads HIGH when not pressed.",
+        "b": "Correct: The pin reads LOW when pressed.",
+        "c": "Incorrect: It does not alternate unless programmed.",
+        "d": "Incorrect: The state changes when pressed."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "How does a photoresistor's resistance change in bright light?",
+      "answers": {
+        "a": "Increases.",
+        "b": "Decreases.",
+        "c": "Remains constant.",
+        "d": "Varies randomly."
+      },
+      "explanations": {
+        "a": "Incorrect: Resistance decreases in light.",
+        "b": "Correct: Resistance decreases as light increases.",
+        "c": "Incorrect: It varies with light intensity.",
+        "d": "Incorrect: The change is not random."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Virtual IoT Lab DEI</title>
+    <link
+      rel="icon"
+      href="https://www.vlab.co.in/images/logo.jpg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" type="text/css" href="src/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="exp-changer">
+        <div class="exp-changer-heading">
+          <p class="p-head">IOT Virtual Lab</p>
+        </div>
+      </div>
+    </header>
+
+    
+
+    <div class="container">
+      <div class="if-vid">
+        <p class="p-head">Interfacing Push Button and Led with Arduino:</p>
+        <div class="interfacing">
+          <img
+            id="ifimg"
+            src="./src/images/led/led_dis.gif"
+            alt="interfacing"
+          />
+          <button id="pushbutton" onclick="changeImage();"></button>
+          
+        </div>
+      </div>
+      <div class="separator"></div>
+      
+      <div class="code">
+        <div class="code-head"><p class="p-head">ARDUINO CODE</p></div>
+        <div>
+          <form action="" method="POST">
+            <textarea id="arduinoCode" readonly>
+const int switchPin = 10;     // Pin connected to slide switch
+const int ledPin = 9;       // Pin connected to LED
+
+void setup() {
+  pinMode(switchPin, INPUT);  // Set switch pin as input
+  pinMode(ledPin, OUTPUT);    // Set LED pin as output
+}
+
+void loop() {
+  int switchState = digitalRead(switchPin); // Read switch state
+
+  if (switchState == HIGH) {
+    digitalWrite(ledPin, HIGH); // Turn on LED
+  } else {
+    digitalWrite(ledPin, LOW);  // Turn off LED
+  }
+}
+
+            </textarea>
+          </form>
+        </div>
+        <div class="code-head startStop">
+          <h2 id="pushbuttonPower" onclick="changePower();">
+            Start Simulation
+          </h2>
+        </div>
+      </div>
+      <div id="slideswitchNotification">
+        Click the slideswitch!
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.js"></script>
+    <script>
+      // Initialize CodeMirror editor in read-only mode with an increased height
+      var editor = CodeMirror.fromTextArea(document.getElementById("arduinoCode"), {
+            mode: "text/x-c++src", // For C++/Arduino syntax highlighting
+            lineNumbers: true, // Show line numbers
+            matchBrackets: true, // Highlight matching brackets
+            theme: "default", // You can change the theme
+            readOnly: "nocursor", // Make the editor read-only
+            tabSize: 4,
+            indentUnit: 4,
+        });
+    </script>
+    <script type="text/javascript" src="src/js/main.js"></script>
+  </body>
+</html>
