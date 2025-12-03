@@ -2,37 +2,173 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "What does a pushbutton do when pressed with a pull-up resistor?",
+      "question": "Explain how a pull-down resistor helps in stable button readings.",
       "answers": {
-        "a": "Pin reads HIGH.",
-        "b": "Pin reads LOW.",
-        "c": "Pin alternates states.",
-        "d": "Pin state remains constant."
+        "a": "It keeps the pin at LOW when button is not pressed.",
+        "b": "It increases the button sensitivity.",
+        "c": "It makes the button work without wiring.",
+        "d": "It prevents power consumption."
       },
       "explanations": {
-        "a": "Incorrect: It reads HIGH when not pressed.",
-        "b": "Correct: The pin reads LOW when pressed.",
-        "c": "Incorrect: It does not alternate unless programmed.",
-        "d": "Incorrect: The state changes when pressed."
+        "a": "Correct: Pull-down keeps input stable at LOW to avoid floating.",
+        "b": "Incorrect: Sensitivity is not affected.",
+        "c": "Incorrect: Wiring is still required.",
+        "d": "Incorrect: It does not reduce power significantly."
       },
-      "correctAnswer": "b",
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Why does a potentiometer produce varying voltage?",
+      "answers": {
+        "a": "Because it changes resistance as you rotate the knob.",
+        "b": "Because it contains internal sensors.",
+        "c": "Because it generates voltage.",
+        "d": "Because it has multiple output pins."
+      },
+      "explanations": {
+        "a": "Correct: Moving the wiper changes resistance → voltage divider output.",
+        "b": "Incorrect: No sensors inside.",
+        "c": "Incorrect: It does not generate voltage.",
+        "d": "Incorrect: Extra pins do not create variation."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "How can we convert LDR analog readings into percentage light intensity?",
+      "answers": {
+        "a": "By mapping analog values (0–1023) to 0–100%.",
+        "b": "By dividing the reading by 2.",
+        "c": "By converting it to digital values.",
+        "d": "By reading only HIGH or LOW."
+      },
+      "explanations": {
+        "a": "Correct: Using map() or formula: (value/1023)*100.",
+        "b": "Incorrect: Dividing by 2 is meaningless.",
+        "c": "Incorrect: Digital conversion removes intensity info.",
+        "d": "Incorrect: Only HIGH/LOW gives no percentage."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Write the difference between slider switch and pushbutton.",
+      "answers": {
+        "a": "Slider stays in position while pushbutton is momentary.",
+        "b": "Both are momentary switches.",
+        "c": "Slider gives analog output while pushbutton gives digital.",
+        "d": "Pushbutton is ON/OFF while slider is analog."
+      },
+      "explanations": {
+        "a": "Correct: Slider = latching, Pushbutton = momentary.",
+        "b": "Incorrect: Only pushbutton is momentary.",
+        "c": "Incorrect: Both give digital signals.",
+        "d": "Incorrect: Neither gives analog output."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "How can debouncing be handled in pushbutton applications?",
+      "answers": {
+        "a": "Using delay() or software logic filtering.",
+        "b": "By pressing the button slowly.",
+        "c": "By reducing the voltage.",
+        "d": "By using analog pins."
+      },
+      "explanations": {
+        "a": "Correct: Software or hardware debounce removes noise.",
+        "b": "Incorrect: Slow pressing doesn’t fix electrical bounce.",
+        "c": "Incorrect: Voltage has no effect on bounce.",
+        "d": "Incorrect: Pin type does not help."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "How does Arduino process analog values internally?",
+      "answers": {
+        "a": "It uses a 10-bit ADC to convert voltage into numbers 0–1023.",
+        "b": "It directly reads voltage without conversion.",
+        "c": "It converts analog into digital only at HIGH/LOW.",
+        "d": "It stores analog values in EEPROM."
+      },
+      "explanations": {
+        "a": "Correct: Arduino Uno has a 10-bit ADC.",
+        "b": "Incorrect: Microcontrollers cannot read pure voltage.",
+        "c": "Incorrect: That's for digital input.",
+        "d": "Incorrect: EEPROM is unrelated."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Suggest an application where potentiometer input can be practically used.",
+      "answers": {
+        "a": "Volume control or brightness adjustment.",
+        "b": "Internet speed measurement.",
+        "c": "Temperature sensing.",
+        "d": "GPS location tracking."
+      },
+      "explanations": {
+        "a": "Correct: Potentiometers are best for adjustable controls.",
+        "b": "Incorrect: Not related.",
+        "c": "Incorrect: Requires sensors.",
+        "d": "Incorrect: GPS uses satellites."
+      },
+      "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "How does a photoresistor's resistance change in bright light?",
+      "question": "Explain why LDR is preferred in automatic lighting systems.",
       "answers": {
-        "a": "Increases.",
-        "b": "Decreases.",
-        "c": "Remains constant.",
-        "d": "Varies randomly."
+        "a": "Because it changes resistance based on light level.",
+        "b": "Because it detects temperature.",
+        "c": "Because it produces sound.",
+        "d": "Because it stores electrical energy."
       },
       "explanations": {
-        "a": "Incorrect: Resistance decreases in light.",
-        "b": "Correct: Resistance decreases as light increases.",
-        "c": "Incorrect: It varies with light intensity.",
-        "d": "Incorrect: The change is not random."
+        "a": "Correct: Resistance drop/rise helps detect day or night.",
+        "b": "Incorrect: LDRs do not detect temperature.",
+        "c": "Incorrect: Not a sound sensor.",
+        "d": "Incorrect: Not an energy storage component."
       },
-      "correctAnswer": "b",
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "How would you detect long press vs short press in simulation?",
+      "answers": {
+        "a": "By measuring how long the button stays pressed using millis().",
+        "b": "By checking analog value.",
+        "c": "By using PWM pins.",
+        "d": "By using only delays."
+      },
+      "explanations": {
+        "a": "Correct: Compare press duration to threshold.",
+        "b": "Incorrect: Button is not analog.",
+        "c": "Incorrect: PWM unrelated.",
+        "d": "Incorrect: Delays block logic."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "How can you display potentiometer values in Serial Monitor?",
+      "answers": {
+        "a": "By using analogRead() and Serial.println().",
+        "b": "By using digitalWrite().",
+        "c": "By using tone().",
+        "d": "By using delay() only."
+      },
+      "explanations": {
+        "a": "Correct: Read analog → print using Serial.",
+        "b": "Incorrect: digitalWrite outputs signals.",
+        "c": "Incorrect: tone() generates sounds.",
+        "d": "Incorrect: delay cannot display anything."
+      },
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
