@@ -1,8 +1,3 @@
-To interface
-1. A Pushbutton with Arduino
+## Aim
 
-2. A Potentiometer with Arduino
-
-3. A Photoresistor with Arduino
-
-4. A Slider switch with Arduino
+To simulate the interfacing of fundamental input components with Arduino and observe how each device generates digital or analog signals. The experiment aims to understand how user actions and environmental changes are captured as inputs in an IoT system.
