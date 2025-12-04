@@ -13,13 +13,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/style.css" />
   </head>
   <body>
-    <header>
-      <div class="exp-changer">
-        <div class="exp-changer-heading">
-          <p class="p-head">IOT Virtual Lab</p>
-        </div>
-      </div>
-    </header>
+  
 
     
 
@@ -43,41 +37,43 @@
         <div>
           <form action="" method="POST">
             <textarea id="arduinoCode" readonly>
-/* Button Turns on and off a light emitting diode(LED)
-   connected to digital  pin 13, when pressing a
-   pushbutton attached to pin 2.
+/* ---------------------------------------------------------
+Objective:
+Control an LED using a push button. When the button is
+pressed, the LED turns ON; otherwise, it stays OFF.
 
-   The circuit:
-  * LED attached from pin 13 to ground
-  * pushbutton attached to pin 2 from +5V
-  * 10K resistor attached to pin 2 from ground
-  * Note: on most Arduinos there is already an LED
-    on the board  attached to pin 13.
-*/
+Components:
+- LED + 220Ω resistor (current limiting)
+- Push Button
+- 10kΩ pull-down resistor
+- Arduino Uno Board
 
-int buttonState = 0;
+Working:
+Digital pin 2 reads the button state. If it becomes HIGH
+(button pressed), Arduino sets LED pin HIGH to turn it ON.
+--------------------------------------------------------- */
 
-void setup()
-{
-  pinMode(2, INPUT);
-  pinMode(LED_BUILTIN, OUTPUT);
+int buttonState = 0;   // Variable to store button input state
+const int buttonPin = 2;       // Push button connected to pin 2
+const int ledPin = LED_BUILTIN; // Built-in LED on pin 13
+
+void setup() {
+  pinMode(buttonPin, INPUT);     // Set button pin as input
+  pinMode(ledPin, OUTPUT);       // Set LED pin as output
 }
 
-void loop()
-{
-  // read the state of the pushbutton value
-  buttonState = digitalRead(2);
-  // check if pushbutton is pressed.  if it is, the
-  // buttonState is HIGH
+void loop() {
+  buttonState = digitalRead(buttonPin);  // Read button state
+
   if (buttonState == HIGH) {
-    // turn LED on
-    digitalWrite(LED_BUILTIN, HIGH);
+    digitalWrite(ledPin, HIGH);  // Turn LED ON
   } else {
-    // turn LED off
-    digitalWrite(LED_BUILTIN, LOW);
+    digitalWrite(ledPin, LOW);   // Turn LED OFF
   }
-  delay(10); // Delay a little bit to improve simulation performance
+
+  delay(10); // Small delay for stable simulation
 }
+
             </textarea>
           </form>
         </div>

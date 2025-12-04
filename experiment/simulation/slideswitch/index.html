@@ -12,20 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
     <link rel="stylesheet" type="text/css" href="src/css/style.css" />
   </head>
-  <body>
-    <header>
-      <div class="exp-changer">
-        <div class="exp-changer-heading">
-          <p class="p-head">IOT Virtual Lab</p>
-        </div>
-      </div>
-    </header>
+
 
     
 
     <div class="container">
       <div class="if-vid">
-        <p class="p-head">Interfacing of Slide Switch and led with Arduino:</p>
+        <p class="p-head">Interfacing Slide Switch and Led with Arduino:</p>
         <div class="interfacing">
           <img
             id="ifimg"
@@ -43,23 +36,40 @@
         <div>
           <form action="" method="POST">
             <textarea id="arduinoCode" readonly>
-const int switchPin = 10;     // Pin connected to slide switch
-const int ledPin = 9;       // Pin connected to LED
+/* -----------------------------------------------------------
+Objective:
+Read the state of a slide switch and control an LED based
+on the switch position.
+
+Components:
+- Slide Switch
+- LED + 100 Ω current-limiting resistor
+- Arduino Uno
+
+Working:
+The slide switch outputs either HIGH (5V) or LOW (0V).
+Arduino reads this digital state from pin 10. If HIGH, the
+LED connected to pin 9 turns ON; otherwise, it stays OFF.
+   ----------------------------------------------------------- */
+
+const int switchPin = 10;  // Pin connected to slide switch
+const int ledPin = 9;      // Pin connected to LED
 
 void setup() {
-  pinMode(switchPin, INPUT);  // Set switch pin as input
-  pinMode(ledPin, OUTPUT);    // Set LED pin as output
+  pinMode(switchPin, INPUT);   // Configure switch pin as input
+  pinMode(ledPin, OUTPUT);     // Configure LED pin as output
 }
 
 void loop() {
-  int switchState = digitalRead(switchPin); // Read switch state
+  int switchState = digitalRead(switchPin);  // Read switch state (HIGH or LOW)
 
   if (switchState == HIGH) {
-    digitalWrite(ledPin, HIGH); // Turn on LED
+    digitalWrite(ledPin, HIGH);  // Turn LED ON
   } else {
-    digitalWrite(ledPin, LOW);  // Turn off LED
+    digitalWrite(ledPin, LOW);   // Turn LED OFF
   }
 }
+
 
             </textarea>
           </form>

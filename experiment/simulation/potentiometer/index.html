@@ -13,17 +13,11 @@
     <link rel="stylesheet" type="text/css" href="./src/css/style.css" />
   </head>
   <body>
-    <header>      
-      <div class="exp-changer">        
-        <div class="exp-changer-heading">
-          <p class="p-head">IOT Virtual Lab</p>
-        </div>
-      </div>
-    </header>    
+  
 
     <div class="container">
       <div class="if-vid">
-        <p class="p-head">Interfacing Potentiometer and led with Arduino</p>
+        <p class="p-head">Interfacing Potentiometer and Led with Arduino</p>
         <div class="interfacing2">
           <img
             id="ifimg2"
@@ -47,23 +41,42 @@
         <div>
           <form action="" method="POST">
             <textarea id="arduinoCode" readonly>
-int potPin = A0; // Potentiometer is connected on Analog Pin A0
-int ledPin = 9;  // LED is connected on Pin No. 9
-int potValue;    // Variable to store potentiometer value
-int ledValue;    // Variable to store LED brightness value
+/* -----------------------------------------------------------
+Objective:
+Read analog input from a 1kΩ potentiometer and control the
+brightness of an LED using PWM output.
+
+Components:
+- 1 kΩ Potentiometer
+- LED + 100 Ω current-limiting resistor
+- Arduino Uno
+
+Working:
+The 1kΩ potentiometer outputs an analog voltage (0–5V) to A0.
+Arduino reads this voltage (0–1023) and maps it to 0–255,
+which is used to control LED brightness on pin 9 via PWM.
+   ----------------------------------------------------------- */
+
+const int potPin = A0;     // Potentiometer connected to analog pin A0
+const int ledPin = 9;      // LED connected to PWM pin 9
+int potValue = 0;          // To store analog input value
+int ledValue = 0;          // To store PWM output value
 
 void setup() {
-  pinMode(ledPin, OUTPUT); // LED pin mode is OUTPUT
-  Serial.begin(9600);      // Initialize serial communication
+  pinMode(ledPin, OUTPUT);   // LED pin set as output
+  Serial.begin(9600);        // Start serial communication
 }
 
 void loop() {
-  potValue = analogRead(potPin);     // Read potentiometer value (0-1023)
-  ledValue = map(potValue, 0, 1023, 0, 255); // Map to LED brightness (0-255)
-  analogWrite(ledPin, ledValue);     // Control LED brightness
-  Serial.println(potValue);          // Print potentiometer value to serial monitor
-  delay(100);                        // Small delay for stability
+  potValue = analogRead(potPin);                 // Read potentiometer value (0–1023)
+  ledValue = map(potValue, 0, 1023, 0, 255);     // Convert to PWM brightness (0–255)
+
+  analogWrite(ledPin, ledValue);                 // Adjust LED brightness
+  Serial.println(potValue);                      // Display raw potentiometer value
+
+  delay(100);  // Short delay for stable output
 }
+
 </textarea>
 </form>
 </div>
