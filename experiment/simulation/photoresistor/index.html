@@ -13,13 +13,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/style.css" />
   </head>
   <body>
-    <header>
-      <div class="exp-changer">
-        <div class="exp-changer-heading">
-          <p class="p-head">IOT Virtual Lab</p>
-        </div>
-      </div>
-    </header>
+
 
     
 
@@ -46,27 +40,44 @@
         <div>
           <form action="" method="POST">
             <textarea id="arduinoCode" readonly>
-// C++ code
-//
-int sensorValue = 0;
+/* -----------------------------------------------------------
+Objective:
+Measure ambient light using an LDR and adjust LED brightness
+based on the light intensity.
 
-void setup()
-{
-  pinMode(A0, INPUT);
-  Serial.begin(9600);
-  pinMode(9, OUTPUT);
+Components:
+- LDR + 4.7 kΩ resistor (voltage divider)
+- LED + 220 Ω resistor
+- Arduino Uno
+
+Working:
+The LDR changes its resistance with light. A voltage divider
+outputs a varying voltage to A0 (0–5V). Arduino reads this
+value (0–1023) and maps it to 0–255 to control LED brightness
+on pin 9 using PWM.
+   ----------------------------------------------------------- */
+
+int sensorValue = 0;  // To store analog value from LDR
+
+const int ldrPin = A0;   // LDR output to analog pin A0
+const int ledPin = 9;    // LED connected to PWM pin 9
+
+void setup() {
+  pinMode(ldrPin, INPUT);   // LDR analog input
+  pinMode(ledPin, OUTPUT);  // LED output
+  Serial.begin(9600);       // Initialize serial monitor
 }
 
-void loop()
-{
-  // read the value from the sensor
-  sensorValue = analogRead(A0);
-  // print the sensor reading so you know its range
-  Serial.println(sensorValue);
-  // map the sensor reading to a range for the LED
-  analogWrite(9, map(sensorValue, 0, 1023, 0, 255));
-  delay(100); // Wait for 100 millisecond(s)
+void loop() {
+  sensorValue = analogRead(ldrPin);  // Read LDR value (0–1023)
+  Serial.println(sensorValue);       // Display light intensity
+
+  int ledValue = map(sensorValue, 0, 1023, 0, 255);  // Map to brightness
+  analogWrite(ledPin, ledValue);                     // Set LED brightness
+
+  delay(100);  // Delay for stability
 }
+
                         </textarea>
           </form>
         </div>
