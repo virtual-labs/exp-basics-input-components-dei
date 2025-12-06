@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Virtual IoT Lab DEI</title>
+    <link
+      rel="icon"
+      href="https://www.vlab.co.in/images/logo.jpg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" type="text/css" href="src/css/style.css" />
+  </head>
+  <body>
+
+
+    
+
+    <div class="container">
+      <div class="if-vid">
+        <p class="p-head">Interfacing Photoresistor and Led with Arduino:</p>
+        <div class="interfacing">
+          <img
+            id="ifimg"
+            src="./src/images/led/led_dis.gif"
+            alt="interfacing"
+          />
+          <!-- <div id="photoAlert">Click on photoresistor</div> -->
+          <button id="pushbutton" onclick="changeImage();"></button>
+          <!-- Slider and red div for photoresistor simulation -->
+          <input type="range" id="photoSlider" min="0" max="100" value="50">
+          <div id="redLed"></div></div>
+        <!-- LDR Graph Canvas removed -->
+      </div>
+      <div class="separator"></div>
+      
+      <div class="code">
+        <div class="code-head"><p class="p-head">ARDUINO CODE</p></div>
+        <div>
+          <form action="" method="POST">
+            <textarea id="arduinoCode" readonly>
+/* -----------------------------------------------------------
+Objective:
+Measure ambient light using an LDR and adjust LED brightness
+based on the light intensity.
+
+Components:
+- LDR + 4.7 kΩ resistor (voltage divider)
+- LED + 220 Ω resistor
+- Arduino Uno
+
+Working:
+The LDR changes its resistance with light. A voltage divider
+outputs a varying voltage to A0 (0–5V). Arduino reads this
+value (0–1023) and maps it to 0–255 to control LED brightness
+on pin 9 using PWM.
+   ----------------------------------------------------------- */
+
+int sensorValue = 0;  // To store analog value from LDR
+
+const int ldrPin = A0;   // LDR output to analog pin A0
+const int ledPin = 9;    // LED connected to PWM pin 9
+
+void setup() {
+  pinMode(ldrPin, INPUT);   // LDR analog input
+  pinMode(ledPin, OUTPUT);  // LED output
+  Serial.begin(9600);       // Initialize serial monitor
+}
+
+void loop() {
+  sensorValue = analogRead(ldrPin);  // Read LDR value (0–1023)
+  Serial.println(sensorValue);       // Display light intensity
+
+  int ledValue = map(sensorValue, 0, 1023, 0, 255);  // Map to brightness
+  analogWrite(ledPin, ledValue);                     // Set LED brightness
+
+  delay(100);  // Delay for stability
+}
+
+                        </textarea>
+          </form>
+        </div>
+        <div class="code-head startStop">
+          <h2 id="pushbuttonPower" onclick="changePower();">
+            Start Simulation
+          </h2>
+        </div>
+      </div>
+    </div>
+    <!-- Chart.js CDN removed -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.js"></script>
+    <script>
+      // Initialize CodeMirror editor in read-only mode with an increased height
+      var editor = CodeMirror.fromTextArea(document.getElementById("arduinoCode"), {
+            mode: "text/x-c++src", // For C++/Arduino syntax highlighting
+            lineNumbers: true, // Show line numbers
+            matchBrackets: true, // Highlight matching brackets
+            theme: "default", // You can change the theme
+            readOnly: "nocursor", // Make the editor read-only
+            tabSize: 4,
+            indentUnit: 4,
+        });
+    </script>
+    <script type="text/javascript" src="src/js/main.js"></script>
+  </body>
+</html>
