@@ -2,8 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "qNo": 1,
-      "question": "What does a pushbutton do when pressed with a pull-up resistor?",
+      "question": "1. What does a pushbutton do when pressed with a pull-up resistor?",
       "answers": {
         "a": "Pin reads HIGH.",
         "b": "Pin reads LOW.",
@@ -14,8 +13,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 2,
-      "question": "How does a photoresistor's resistance change in bright light?",
+      "question": "2. How does a photoresistor's resistance change in bright light?",
       "answers": {
         "a": "Increases.",
         "b": "Decreases.",
@@ -26,8 +24,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 3,
-      "question": "What type of signal does a pushbutton provide to Arduino?",
+      "question": "3. What type of signal does a pushbutton provide to Arduino?",
       "answers": {
         "a": "Analog signal",
         "b": "Digital signal",
@@ -38,8 +35,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 4,
-      "question": "Which Arduino pin type is used to read a potentiometer?",
+      "question": "4. Which Arduino pin type is used to read a potentiometer?",
       "answers": {
         "a": "Digital pin",
         "b": "Analog pin (A0–A5)",
@@ -50,8 +46,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 5,
-      "question": "What does LDR stand for?",
+      "question": "5. What does LDR stand for?",
       "answers": {
         "a": "Light Detecting Resistor",
         "b": "Light Dependent Resistor",
@@ -62,8 +57,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 6,
-      "question": "A slider switch gives output in which format?",
+      "question": "6. A slider switch gives output in which format?",
       "answers": {
         "a": "Analog",
         "b": "Digital (ON/OFF)",
@@ -74,8 +68,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 7,
-      "question": "What is the range of analog values read by Arduino Uno?",
+      "question": "7. What is the range of analog values read by Arduino Uno?",
       "answers": {
         "a": "0–1023",
         "b": "0–255",
@@ -86,8 +79,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 8,
-      "question": "A pushbutton requires which resistor configuration?",
+      "question": "8. A pushbutton requires which resistor configuration?",
       "answers": {
         "a": "Pull-down resistor",
         "b": "Pull-up resistor",
@@ -98,8 +90,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 9,
-      "question": "Does a potentiometer provide analog or digital input?",
+      "question": "9. Does a potentiometer provide analog or digital input?",
       "answers": {
         "a": "Analog",
         "b": "Digital",
@@ -110,8 +101,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 10,
-      "question": "In an LDR, resistance increases when light intensity ___?",
+      "question": "10. In an LDR, resistance increases when light intensity ___?",
       "answers": {
         "a": "Increases",
         "b": "Decreases",
@@ -122,8 +112,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 11,
-      "question": "Which function is used in Arduino to read analog signals?",
+      "question": "11. Which function is used in Arduino to read analog signals?",
       "answers": {
         "a": "digitalRead()",
         "b": "analogRead()",
@@ -134,8 +123,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 12,
-      "question": "Which function reads digital signals in Arduino?",
+      "question": "12. Which function reads digital signals in Arduino?",
       "answers": {
         "a": "digitalRead()",
         "b": "analogRead()",
