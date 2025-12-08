@@ -1,4 +1,4 @@
-## Procedure
+### Procedure for the experiment is as follows:
 
 1. Open the experiment in the virtual lab.  
    The Arduino board and all input components (pushbutton, potentiometer, slider switch, photoresistor) are already connected.
