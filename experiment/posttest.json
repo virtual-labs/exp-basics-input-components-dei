@@ -2,8 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "qNo": 1,
-      "question": "Explain how a pull-down resistor helps in stable button readings.",
+      "question": "1. Explain how a pull-down resistor helps in stable button readings.",
       "answers": {
         "a": "It keeps the pin at LOW when button is not pressed.",
         "b": "It increases the button sensitivity.",
@@ -14,8 +13,7 @@
       "difficulty": "intermediate"
     },
     {
-      "qNo": 2,
-      "question": "Why does a potentiometer produce varying voltage?",
+      "question": "2. Why does a potentiometer produce varying voltage?",
       "answers": {
         "a": "Because it changes resistance as you rotate the knob.",
         "b": "Because it contains internal sensors.",
@@ -26,8 +24,7 @@
       "difficulty": "intermediate"
     },
     {
-      "qNo": 3,
-      "question": "How can we convert LDR analog readings into percentage light intensity?",
+      "question": "3. How can we convert LDR analog readings into percentage light intensity?",
       "answers": {
         "a": "By mapping analog values (0–1023) to 0–100%.",
         "b": "By dividing the reading by 2.",
@@ -38,8 +35,7 @@
       "difficulty": "intermediate"
     },
     {
-      "qNo": 4,
-      "question": "Write the difference between slider switch and pushbutton.",
+      "question": "4. Write the difference between slider switch and pushbutton.",
       "answers": {
         "a": "Slider stays in position while pushbutton is momentary.",
         "b": "Both are momentary switches.",
@@ -50,8 +46,7 @@
       "difficulty": "intermediate"
     },
     {
-      "qNo": 5,
-      "question": "How can debouncing be handled in pushbutton applications?",
+      "question": "5. How can debouncing be handled in pushbutton applications?",
       "answers": {
         "a": "Using delay() or software logic filtering.",
         "b": "By pressing the button slowly.",
@@ -62,8 +57,7 @@
       "difficulty": "intermediate"
     },
     {
-      "qNo": 6,
-      "question": "How does Arduino process analog values internally?",
+      "question": "6. How does Arduino process analog values internally?",
       "answers": {
         "a": "It uses a 10-bit ADC to convert voltage into numbers 0–1023.",
         "b": "It directly reads voltage without conversion.",
@@ -74,8 +68,7 @@
       "difficulty": "intermediate"
     },
     {
-      "qNo": 7,
-      "question": "Suggest an application where potentiometer input can be practically used.",
+      "question": "7. Suggest an application where potentiometer input can be practically used.",
       "answers": {
         "a": "Volume control or brightness adjustment.",
         "b": "Internet speed measurement.",
@@ -86,8 +79,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 8,
-      "question": "Explain why LDR is preferred in automatic lighting systems.",
+      "question": "8. Explain why LDR is preferred in automatic lighting systems.",
       "answers": {
         "a": "Because it changes resistance based on light level.",
         "b": "Because it detects temperature.",
@@ -98,8 +90,7 @@
       "difficulty": "beginner"
     },
     {
-      "qNo": 9,
-      "question": "How would you detect long press vs short press in simulation?",
+      "question": "9. How would you detect long press vs short press in simulation?",
       "answers": {
         "a": "By measuring how long the button stays pressed using millis().",
         "b": "By checking analog value.",
@@ -110,8 +101,7 @@
       "difficulty": "intermediate"
     },
     {
-      "qNo": 10,
-      "question": "How can you display potentiometer values in Serial Monitor?",
+      "question": "10. How can you display potentiometer values in Serial Monitor?",
       "answers": {
         "a": "By using analogRead() and Serial.println().",
         "b": "By using digitalWrite().",
