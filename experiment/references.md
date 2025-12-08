@@ -1,4 +1,4 @@
-## References
+### References
 
 1. Arduino Official Documentation, "Arduino Language Reference", Available at: https://www.arduino.cc/reference/en/
 2. Simon Monk, "Programming Arduino: Getting Started with Sketches", McGraw-Hill Education, 2016.
