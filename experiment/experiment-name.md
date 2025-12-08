@@ -1,1 +1,1 @@
-## Simulation of sending live sensors data on IoT Platform using MQTT Protocols and ESP8266/ESP32.
+## To simulate interfacing of basics input components (pushbutton, potentiometer, slider switch and photoresistor) with Arduino
