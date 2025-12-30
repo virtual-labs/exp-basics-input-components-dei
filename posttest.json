@@ -1,0 +1,115 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. Explain how a pull-down resistor helps in stable button readings.",
+      "answers": {
+        "a": "It keeps the pin at LOW when button is not pressed.",
+        "b": "It increases the button sensitivity.",
+        "c": "It makes the button work without wiring.",
+        "d": "It prevents power consumption."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "2. Why does a potentiometer produce varying voltage?",
+      "answers": {
+        "a": "Because it changes resistance as you rotate the knob.",
+        "b": "Because it contains internal sensors.",
+        "c": "Because it generates voltage.",
+        "d": "Because it has multiple output pins."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "3. How can we convert LDR analog readings into percentage light intensity?",
+      "answers": {
+        "a": "By mapping analog values (0–1023) to 0–100%.",
+        "b": "By dividing the reading by 2.",
+        "c": "By converting it to digital values.",
+        "d": "By reading only HIGH or LOW."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "4. Write the difference between slider switch and pushbutton.",
+      "answers": {
+        "a": "Slider stays in position while pushbutton is momentary.",
+        "b": "Both are momentary switches.",
+        "c": "Slider gives analog output while pushbutton gives digital.",
+        "d": "Pushbutton is ON/OFF while slider is analog."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "5. How can debouncing be handled in pushbutton applications?",
+      "answers": {
+        "a": "Using delay() or software logic filtering.",
+        "b": "By pressing the button slowly.",
+        "c": "By reducing the voltage.",
+        "d": "By using analog pins."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "6. How does Arduino process analog values internally?",
+      "answers": {
+        "a": "It uses a 10-bit ADC to convert voltage into numbers 0–1023.",
+        "b": "It directly reads voltage without conversion.",
+        "c": "It converts analog into digital only at HIGH/LOW.",
+        "d": "It stores analog values in EEPROM."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "7. Suggest an application where potentiometer input can be practically used.",
+      "answers": {
+        "a": "Volume control or brightness adjustment.",
+        "b": "Internet speed measurement.",
+        "c": "Temperature sensing.",
+        "d": "GPS location tracking."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "8. Explain why LDR is preferred in automatic lighting systems.",
+      "answers": {
+        "a": "Because it changes resistance based on light level.",
+        "b": "Because it detects temperature.",
+        "c": "Because it produces sound.",
+        "d": "Because it stores electrical energy."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "9. How would you detect long press vs short press in simulation?",
+      "answers": {
+        "a": "By measuring how long the button stays pressed using millis().",
+        "b": "By checking analog value.",
+        "c": "By using PWM pins.",
+        "d": "By using only delays."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "10. How can you display potentiometer values in Serial Monitor?",
+      "answers": {
+        "a": "By using analogRead() and Serial.println().",
+        "b": "By using digitalWrite().",
+        "c": "By using tone().",
+        "d": "By using delay() only."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+  ]
+}
