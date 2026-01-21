@@ -4,54 +4,65 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Virtual IoT Lab DEI</title>
-    <link
-      rel="icon"
-      href="https://www.vlab.co.in/images/logo.jpg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
-    <link rel="stylesheet" type="text/css" href="src/css/style.css" />
+    <link rel="icon" href="https://www.vlab.co.in/images/logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/monokai.min.css" />
+    <link rel="stylesheet" type="text/css" href="./src/css/style.css" />
   </head>
-
-
-    
-
+  <body>
     <div class="container">
       <div class="if-vid">
         <p class="p-head">Interfacing Slide Switch and Led with Arduino:</p>
         <div class="interfacing">
-          <img
-            id="ifimg"
-            src="./src/images/led/led_dis.gif"
-            alt="interfacing"
-          />
+          <img id="ifimg" src="./src/images/led/led_dis.gif" alt="interfacing" />
           <button id="pushbutton" onclick="changeImage();"></button>
-          
         </div>
       </div>
-      <div class="separator"></div>
-      
-      <div class="code">
-        <div class="code-head"><p class="p-head">ARDUINO CODE</p></div>
-        <div>
-          <form action="" method="POST">
+
+      <div class="right-panel">
+        <div class="instruction-box">
+          <h3 class="box-title">Instructions</h3>
+          <div class="instruction-content">
+            <div class="instruction-section">
+              <h4>Objective:</h4>
+              <p>Learn how a slide switch works as a digital input to control an LED output based on switch position.</p>
+            </div>
+
+            <div class="instruction-section">
+              <h4>Steps to Perform:</h4>
+              <ol>
+                <li>Click <strong>"Start Simulation"</strong> to power up the Arduino circuit</li>
+                <li>Click on the <strong>slide switch</strong> to toggle its position</li>
+                <li>Observe how the LED turns ON when switch is in HIGH position</li>
+                <li>Click the switch again to toggle back</li>
+                <li>The LED will turn OFF when switch is in LOW position</li>
+              </ol>
+            </div>
+
+            <div class="instruction-section">
+              <h4>Key Concepts:</h4>
+              <ul>
+                <li><strong>Slide Switch:</strong> Two-position switch that maintains its state (ON/OFF)</li>
+                <li><strong>Digital Input:</strong> Switch provides HIGH (5V) or LOW (0V) signal</li>
+                <li><strong>Digital Output:</strong> Arduino writes HIGH/LOW to LED pin to control it</li>
+                <li><strong>digitalRead():</strong> Reads switch state from digital pin 10</li>
+                <li><strong>digitalWrite():</strong> Sets LED pin HIGH (ON) or LOW (OFF)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <span class="box-title">Arduino Code - main.ino</span>
+            <div class="code-actions">
+              <button class="control-btn start-btn" id="startBtn" onclick="changePower();">
+                <span class="play-icon">▶</span> Start Simulation
+              </button>
+            </div>
+          </div>
+          <div class="code-content">
             <textarea id="arduinoCode" readonly>
-/* -----------------------------------------------------------
-Objective:
-Read the state of a slide switch and control an LED based
-on the switch position.
-
-Components:
-- Slide Switch
-- LED + 100 Ω current-limiting resistor
-- Arduino Uno
-
-Working:
-The slide switch outputs either HIGH (5V) or LOW (0V).
-Arduino reads this digital state from pin 10. If HIGH, the
-LED connected to pin 9 turns ON; otherwise, it stays OFF.
-   ----------------------------------------------------------- */
-
 const int switchPin = 10;  // Pin connected to slide switch
 const int ledPin = 9;      // Pin connected to LED
 
@@ -68,36 +79,48 @@ void loop() {
   } else {
     digitalWrite(ledPin, LOW);   // Turn LED OFF
   }
-}
-
-
-            </textarea>
-          </form>
+}</textarea>
+          </div>
         </div>
-        <div class="code-head startStop">
-          <h2 id="pushbuttonPower" onclick="changePower();">
-            Start Simulation
-          </h2>
-        </div>
-      </div>
-      <div id="slideswitchNotification">
-        Click the slideswitch!
       </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.min.js"></script>
+    <script src="src/js/main.js"></script>
     <script>
-      // Initialize CodeMirror editor in read-only mode with an increased height
       var editor = CodeMirror.fromTextArea(document.getElementById("arduinoCode"), {
-            mode: "text/x-c++src", // For C++/Arduino syntax highlighting
-            lineNumbers: true, // Show line numbers
-            matchBrackets: true, // Highlight matching brackets
-            theme: "default", // You can change the theme
-            readOnly: "nocursor", // Make the editor read-only
-            tabSize: 4,
-            indentUnit: 4,
+        mode: "text/x-c++src",
+        theme: "monokai",
+        lineNumbers: true,
+        readOnly: true,
+        lineWrapping: false,
+        matchBrackets: true,
+        indentUnit: 2,
+        tabSize: 2,
+        scrollbarStyle: "native"
+      });
+
+      function copyCode() {
+        const code = editor.getValue();
+        navigator.clipboard.writeText(code).then(function() {
+          alert('Code copied to clipboard!');
+        }).catch(function() {
+          const textarea = document.createElement('textarea');
+          textarea.value = code;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          alert('Code copied to clipboard!');
         });
+      }
+
+      function clearCode() {
+        if (confirm('Are you sure you want to clear the code?')) {
+          editor.setValue('');
+        }
+      }
     </script>
-    <script type="text/javascript" src="src/js/main.js"></script>
   </body>
 </html>
