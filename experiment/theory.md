@@ -1,100 +1,103 @@
-## Input Components in Embedded Systems and IoT
+#### Introduction
 
-In embedded systems and IoT applications, input components allow the microcontroller to sense user actions and environmental changes.  
-This experiment focuses on understanding how different input devices interact with the Arduino Uno and how their signals can be read in a virtual lab simulation.  
-The Arduino reads these signals as **digital or analog values**, which are then processed through programming logic.
+Arduino is an open-source microcontroller platform widely used for learning embedded systems and Internet of Things (IoT) applications. It allows users to interface various input and output components through its digital and analog pins. These pins help Arduino sense user actions or environmental changes and process them into meaningful digital signals.
 
----
+In this experiment, basic input components such as a **push button, potentiometer, slider switch, and photoresistor (LDR)** are interfaced with Arduino. The experiment helps learners understand how physical inputs are converted into electrical signals and how Arduino reads and processes these signals. This knowledge forms the foundation for building advanced applications like smart home systems, automation, robotics, and sensor-based monitoring systems.
 
-## Pushbutton (Digital Input)
+#### Arduino as an Input Processing Unit
 
-A pushbutton is a simple mechanical input device used to detect press-and-release actions.
+Arduino processes inputs using two main types of pins:
 
-### Working Principle
+- **Digital Pins:** Used to read binary values such as HIGH (1) or LOW (0)
+- **Analog Pins:** Used to read varying voltage levels between 0V and 5V
 
-- When pressed, it **completes the circuit**; when released, it **opens the circuit**.  
-- It provides a **digital output**:
-  - **HIGH (1)** when activated  
-  - **LOW (0)** when deactivated (depending on wiring type)
-- Arduino uses **internal pull-up or pull-down resistors** to prevent floating inputs.
+Arduino contains an **Analog-to-Digital Converter (ADC)** which converts analog voltage values into digital values ranging from **0 to 1023**. This enables Arduino to read data from sensors like potentiometers and LDRs accurately.
 
-### Simulation Use
+#### Components
 
-- In the virtual lab, pressing the button generates a clean digital signal without mechanical noise.
+#### 1. **Arduino Uno**
 
-### Applications
+Arduino Uno is a microcontroller board based on the ATmega328P. It acts as the main processing unit in this experiment. Arduino reads input signals from various components and converts them into digital data for processing and control.
 
-- Start/stop commands  
-- Menu selection  
-- Reset operations  
-- General user input control  
+<div><img src="./images/Arduino.png" alt="Arduino Uno" width="35%"></div>
 
----
+#### 2. **Push Button**
 
-## Potentiometer (Analog Input)
+A push button is a simple digital input device that works on the principle of momentary switching. When the button is pressed, the circuit is completed and a digital signal is sent to the Arduino. When released, the circuit becomes open.
 
-A potentiometer is a rotary variable resistor that provides **adjustable analog input**.
+The push button is connected to a digital pin of Arduino and can use either an external pull-down resistor or Arduino’s internal pull-up resistor.
 
-### Working Principle
+<div><img src="./images/push_button.jpg" alt="Push Button" width="15%"></div>
 
-- Produces a variable voltage (**0–5V**) based on knob rotation.  
-- Connected to Arduino through **analog pins A0–A5**.  
-- Arduino reads the value using its **10-bit ADC**, generating values **0 to 1023**.
+**Applications:**
+- User input selection  
+- Reset buttons  
+- Start/Stop controls  
 
-### Simulation Use
+#### 3. **Potentiometer**
 
-- Turning the knob shows **real-time voltage changes** on the analog input in the simulation.
+A potentiometer is a variable resistor that works as a voltage divider. Rotating its knob changes the resistance, which results in a varying output voltage between 0V and 5V.
 
-### Applications
+The middle pin of the potentiometer is connected to an analog pin of Arduino. Arduino reads this changing voltage using the `analogRead()` function, producing values from 0 to 1023.
 
+<div><img src="./images/potentiometer.jpg" alt="Potentiometer" width="25%"></div>
+
+**Applications:**
 - Brightness control  
-- Audio volume adjustment  
-- Motor speed regulation  
-- Sensor calibration  
+- Volume control  
+- Speed control  
 
----
+#### 4. **Slider Switch**
 
-## Slider Switch (Digital Input)
+A slider switch is a digital selector switch that provides stable ON and OFF states. It works as an SPDT (Single Pole Double Throw) switch, allowing selection between two different states.
 
-A slider switch is a stable two-position switch used for mode selection.
+The slider switch is connected to a digital pin of Arduino and outputs either HIGH or LOW depending on its position.
 
-### Working Principle
+<div><img src="./images/sliderswitch.webp" alt="Slider Switch" width="20%"></div>
 
-- Slides between two fixed states: **ON/OFF** or **LEFT/RIGHT**.  
-- Provides a **stable digital signal** that stays constant until the switch is moved.
-
-### Simulation Use
-
-- Sliding the switch instantly toggles the digital input on the Arduino pin.
-
-### Applications
-
+**Applications:**
 - Mode selection  
-- Enabling/disabling circuits  
-- Device configuration settings  
+- Power control  
+- Configuration switching  
 
----
+#### 5. **Photoresistor (LDR – Light Dependent Resistor)**
 
-## Photoresistor / LDR (Analog Input)
+A photoresistor or LDR changes its resistance based on the intensity of light falling on it. When light intensity increases, the resistance decreases, and when light decreases, the resistance increases.
 
-A Photoresistor (LDR) is a light-sensitive resistor whose resistance varies with light intensity.
+The LDR is used along with a fixed resistor to form a voltage divider circuit. The output voltage is connected to an analog pin of Arduino.
 
-### Working Principle
+<div><img src="./images/ldr.jpg" alt="LDR Sensor" width="25%"></div>
 
-- **High light → Low resistance → Higher voltage output**  
-- **Low light → High resistance → Lower voltage output**  
-- Used with a **voltage divider** to produce an analog voltage.  
-- Arduino reads this through analog pins to measure **light intensity**.
+**Behavior:**
+- Bright light → Higher analog value  
+- Darkness → Lower analog value  
 
-### Applications
+**Applications:**
+- Automatic street lights  
+- Light intensity measurement  
+- Smart lighting systems  
 
-- Automatic lighting systems  
-- Security alarms  
-- Smart agriculture  
-- Home automation  
+#### Circuit Connections
 
-### Simulation Use
+1. **Push Button Connection**
+   - One terminal of the push button is connected to a **digital input pin** of Arduino.
+   - The other terminal is connected to **ground (GND)**.
+   - A pull-up or pull-down resistor is used to avoid floating values.
 
-- Light intensity can be adjusted using a slider in the virtual lab, showing the analog reading change instantly.
+2. **Potentiometer Connection**
+   - One end connected to **5V**
+   - Other end connected to **GND**
+   - Middle pin connected to an **analog pin**
 
----
+3. **Slider Switch Connection**
+   - Common pin connected to a **digital pin**
+   - Other terminals connected to **5V** and **GND**
+
+4. **LDR Connection**
+   - LDR connected in series with a fixed resistor
+   - Output taken from the junction and connected to an **analog pin**
+
+#### Conclusion
+
+This experiment demonstrates the interfacing of basic input components with Arduino and explains how different types of inputs are read using digital and analog pins. Understanding these components is essential for developing real-world embedded systems and IoT applications.
+
