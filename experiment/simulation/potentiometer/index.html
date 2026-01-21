@@ -4,59 +4,92 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Virtual IoT Lab DEI</title>
-    <link
-      rel="icon"
-      href="https://www.vlab.co.in/images/logo.jpg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="icon" href="https://www.vlab.co.in/images/logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/monokai.min.css" />
     <link rel="stylesheet" type="text/css" href="./src/css/style.css" />
   </head>
   <body>
-  
-
     <div class="container">
       <div class="if-vid">
-        <p class="p-head">Interfacing Potentiometer and Led with Arduino</p>
-        <div class="interfacing2">
-          <img
-            id="ifimg2"
-            src="./src/images/buzzer/pot_off.gif"
-            alt="interfacing"
-          />
-          <button id="potClickButton"
-          onclick="changePotentiometerImage()">
-  </button>
-          <button id="buzzerpushbutton"
-          onclick="changeBuzzerImage()">
-  </button>
-          <!-- Slider and LED indicator for potentiometer simulation -->
-          <input type="range" id="potSlider" min="0" max="1023" value="512">
+        <p class="p-head">Interfacing Potentiometer and Led with Arduino:</p>
+        <div class="interfacing">
+          <img id="ifimg" src="./src/images/buzzer/pot_off.gif" alt="interfacing" />
+          <button id="pushbutton" onclick="changeImage();"></button>
+          <input type="range" id="potSlider" min="0" max="1023" value="512" />
           <div id="potLed"></div>
         </div>
+        
+        <div class="sensor-display" id="sensorDisplay">
+          <div class="gauge-container">
+            <div class="gauge-label">Sensor Value (Potentiometer)</div>
+            <div class="gauge">
+              <svg viewBox="0 0 200 120" class="gauge-svg">
+                <path class="gauge-bg" d="M 20 100 A 80 80 0 0 1 180 100" />
+                <path class="gauge-fill" id="potGauge" d="M 20 100 A 80 80 0 0 1 180 100" />
+              </svg>
+              <div class="gauge-value" id="potValue">0</div>
+              <div class="gauge-max">1023</div>
+            </div>
+          </div>
+          <div class="gauge-container">
+            <div class="gauge-label">LED Brightness</div>
+            <div class="gauge">
+              <svg viewBox="0 0 200 120" class="gauge-svg">
+                <path class="gauge-bg" d="M 20 100 A 80 80 0 0 1 180 100" />
+                <path class="gauge-fill" id="ledGauge" d="M 20 100 A 80 80 0 0 1 180 100" />
+              </svg>
+              <div class="gauge-value" id="ledValue">0</div>
+              <div class="gauge-max">255</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="separator"></div>
-      <div class="code">
-        <div class="code-head"><p class="p-head">ARDUINO CODE</p></div>
-        <div>
-          <form action="" method="POST">
+
+      <div class="right-panel">
+        <div class="instruction-box">
+          <h3 class="box-title">Instructions</h3>
+          <div class="instruction-content">
+            <div class="instruction-section">
+              <h4>Objective:</h4>
+              <p>Learn how a potentiometer controls voltage and adjusts LED brightness through analog input.</p>
+            </div>
+
+            <div class="instruction-section">
+              <h4>Steps to Perform:</h4>
+              <ol>
+                <li>Click <strong>"Start Simulation"</strong> to power up the Arduino circuit</li>
+                <li>Click on the <strong>potentiometer knob</strong> to activate it</li>
+                <li>Use the <strong>slider</strong> to simulate rotating the potentiometer (0-1023)</li>
+                <li>Observe how the LED brightness changes based on potentiometer position</li>
+                <li>Higher values → Brighter LED glow</li>
+                <li>Lower values → Dimmer LED glow</li>
+              </ol>
+            </div>
+
+            <div class="instruction-section">
+              <h4>Key Concepts:</h4>
+              <ul>
+                <li><strong>Potentiometer:</strong> Variable resistor - adjusts voltage by rotating the knob</li>
+                <li><strong>Analog Read:</strong> Arduino reads voltage (0-1023) from the potentiometer wiper</li>
+                <li><strong>PWM:</strong> Pulse Width Modulation controls LED brightness (0-255)</li>
+                <li><strong>Mapping:</strong> Converts sensor range (0-1023) to LED range (0-255)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <span class="box-title">Arduino Code - main.ino</span>
+            <div class="code-actions">
+              <button class="control-btn start-btn" id="startBtn" onclick="changePower();">
+                <span class="play-icon">▶</span> Start Simulation
+              </button>
+            </div>
+          </div>
+          <div class="code-content">
             <textarea id="arduinoCode" readonly>
-/* -----------------------------------------------------------
-Objective:
-Read analog input from a 1kΩ potentiometer and control the
-brightness of an LED using PWM output.
-
-Components:
-- 1 kΩ Potentiometer
-- LED + 100 Ω current-limiting resistor
-- Arduino Uno
-
-Working:
-The 1kΩ potentiometer outputs an analog voltage (0–5V) to A0.
-Arduino reads this voltage (0–1023) and maps it to 0–255,
-which is used to control LED brightness on pin 9 via PWM.
-   ----------------------------------------------------------- */
-
 const int potPin = A0;     // Potentiometer connected to analog pin A0
 const int ledPin = 9;      // LED connected to PWM pin 9
 int potValue = 0;          // To store analog input value
@@ -75,35 +108,48 @@ void loop() {
   Serial.println(potValue);                      // Display raw potentiometer value
 
   delay(100);  // Short delay for stable output
-}
-
-</textarea>
-</form>
-</div>
-        <div class="code-head startStop">
-          <h2 id="pushbuttonPower" onclick="changePowerBuzzer();">
-            Start Simulation
-          </h2>
+}</textarea>
+          </div>
         </div>
       </div>
-      <div id="potNotification">
-  Click the potentiometer!
-</div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.min.js"></script>
+    <script src="src/js/main.js"></script>
     <script>
-      // Initialize CodeMirror editor in read-only mode with an increased height
       var editor = CodeMirror.fromTextArea(document.getElementById("arduinoCode"), {
-            mode: "text/x-c++src", // For C++/Arduino syntax highlighting
-            lineNumbers: true, // Show line numbers
-            matchBrackets: true, // Highlight matching brackets
-            theme: "default", // You can change the theme
-            readOnly: "nocursor", // Make the editor read-only
-            tabSize: 4,
-            indentUnit: 4,
+        mode: "text/x-c++src",
+        theme: "monokai",
+        lineNumbers: true,
+        readOnly: true,
+        lineWrapping: false,
+        matchBrackets: true,
+        indentUnit: 2,
+        tabSize: 2,
+        scrollbarStyle: "native"
+      });
+
+      function copyCode() {
+        const code = editor.getValue();
+        navigator.clipboard.writeText(code).then(function() {
+          alert('Code copied to clipboard!');
+        }).catch(function() {
+          const textarea = document.createElement('textarea');
+          textarea.value = code;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          alert('Code copied to clipboard!');
         });
+      }
+
+      function clearCode() {
+        if (confirm('Are you sure you want to clear the code?')) {
+          editor.setValue('');
+        }
+      }
     </script>
-    <script type="text/javascript" src="src/js/buzzer.js"></script>
   </body>
 </html>

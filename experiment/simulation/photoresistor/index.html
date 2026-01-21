@@ -4,59 +4,92 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Virtual IoT Lab DEI</title>
-    <link
-      rel="icon"
-      href="https://www.vlab.co.in/images/logo.jpg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="icon" href="https://www.vlab.co.in/images/logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/monokai.min.css" />
     <link rel="stylesheet" type="text/css" href="src/css/style.css" />
   </head>
   <body>
-
-
-    
-
     <div class="container">
       <div class="if-vid">
         <p class="p-head">Interfacing Photoresistor and Led with Arduino:</p>
         <div class="interfacing">
-          <img
-            id="ifimg"
-            src="./src/images/led/led_dis.gif"
-            alt="interfacing"
-          />
-          <!-- <div id="photoAlert">Click on photoresistor</div> -->
+          <img id="ifimg" src="./src/images/led/led_dis.gif" alt="interfacing" />
           <button id="pushbutton" onclick="changeImage();"></button>
-          <!-- Slider and red div for photoresistor simulation -->
-          <input type="range" id="photoSlider" min="0" max="100" value="50">
-          <div id="redLed"></div></div>
-        <!-- LDR Graph Canvas removed -->
+          <input type="range" id="photoSlider" min="0" max="100" value="50" />
+          <div id="redLed"></div>
+        </div>
+        
+        <div class="sensor-display" id="sensorDisplay">
+          <div class="gauge-container">
+            <div class="gauge-label">Sensor Value (LDR)</div>
+            <div class="gauge">
+              <svg viewBox="0 0 200 120" class="gauge-svg">
+                <path class="gauge-bg" d="M 20 100 A 80 80 0 0 1 180 100" />
+                <path class="gauge-fill" id="lightGauge" d="M 20 100 A 80 80 0 0 1 180 100" />
+              </svg>
+              <div class="gauge-value" id="lightValue">0</div>
+              <div class="gauge-max">1023</div>
+            </div>
+          </div>
+          <div class="gauge-container">
+            <div class="gauge-label">LED Brightness</div>
+            <div class="gauge">
+              <svg viewBox="0 0 200 120" class="gauge-svg">
+                <path class="gauge-bg" d="M 20 100 A 80 80 0 0 1 180 100" />
+                <path class="gauge-fill" id="ledGauge" d="M 20 100 A 80 80 0 0 1 180 100" />
+              </svg>
+              <div class="gauge-value" id="ledValue">0</div>
+              <div class="gauge-max">255</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="separator"></div>
-      
-      <div class="code">
-        <div class="code-head"><p class="p-head">ARDUINO CODE</p></div>
-        <div>
-          <form action="" method="POST">
+
+      <div class="right-panel">
+        <div class="instruction-box">
+          <h3 class="box-title">Instructions</h3>
+          <div class="instruction-content">
+            <div class="instruction-section">
+              <h4>Objective:</h4>
+              <p>Learn how a photoresistor (LDR) detects light intensity and controls LED brightness automatically.</p>
+            </div>
+
+            <div class="instruction-section">
+              <h4>Steps to Perform:</h4>
+              <ol>
+                <li>Click <strong>"Start Simulation"</strong> to power up the Arduino circuit</li>
+                <li>Click on the <strong>photoresistor (circular sensor)</strong> to activate it</li>
+                <li>Use the <strong>slider</strong> to simulate different light levels (0-100)</li>
+                <li>Observe how the LED brightness changes based on light intensity</li>
+                <li>Higher light values → Brighter LED glow</li>
+                <li>Lower light values → Dimmer LED glow</li>
+              </ol>
+            </div>
+
+            <div class="instruction-section">
+              <h4>Key Concepts:</h4>
+              <ul>
+                <li><strong>LDR:</strong> Light Dependent Resistor - resistance decreases with more light</li>
+                <li><strong>Analog Read:</strong> Arduino reads voltage (0-1023) from the voltage divider</li>
+                <li><strong>PWM:</strong> Pulse Width Modulation controls LED brightness (0-255)</li>
+                <li><strong>Mapping:</strong> Converts sensor range (0-1023) to LED range (0-255)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <span class="box-title">Arduino Code - main.ino</span>
+            <div class="code-actions">
+              <button class="control-btn start-btn" id="startBtn" onclick="changePower();">
+                <span class="play-icon">▶</span> Start Simulation
+              </button>
+            </div>
+          </div>
+          <div class="code-content">
             <textarea id="arduinoCode" readonly>
-/* -----------------------------------------------------------
-Objective:
-Measure ambient light using an LDR and adjust LED brightness
-based on the light intensity.
-
-Components:
-- LDR + 4.7 kΩ resistor (voltage divider)
-- LED + 220 Ω resistor
-- Arduino Uno
-
-Working:
-The LDR changes its resistance with light. A voltage divider
-outputs a varying voltage to A0 (0–5V). Arduino reads this
-value (0–1023) and maps it to 0–255 to control LED brightness
-on pin 9 using PWM.
-   ----------------------------------------------------------- */
-
 int sensorValue = 0;  // To store analog value from LDR
 
 const int ldrPin = A0;   // LDR output to analog pin A0
@@ -76,33 +109,48 @@ void loop() {
   analogWrite(ledPin, ledValue);                     // Set LED brightness
 
   delay(100);  // Delay for stability
-}
-
-                        </textarea>
-          </form>
-        </div>
-        <div class="code-head startStop">
-          <h2 id="pushbuttonPower" onclick="changePower();">
-            Start Simulation
-          </h2>
+}</textarea>
+          </div>
         </div>
       </div>
     </div>
-    <!-- Chart.js CDN removed -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/clike/clike.min.js"></script>
+    <script src="src/js/main.js"></script>
     <script>
-      // Initialize CodeMirror editor in read-only mode with an increased height
       var editor = CodeMirror.fromTextArea(document.getElementById("arduinoCode"), {
-            mode: "text/x-c++src", // For C++/Arduino syntax highlighting
-            lineNumbers: true, // Show line numbers
-            matchBrackets: true, // Highlight matching brackets
-            theme: "default", // You can change the theme
-            readOnly: "nocursor", // Make the editor read-only
-            tabSize: 4,
-            indentUnit: 4,
+        mode: "text/x-c++src",
+        theme: "monokai",
+        lineNumbers: true,
+        readOnly: true,
+        lineWrapping: false,
+        matchBrackets: true,
+        indentUnit: 2,
+        tabSize: 2,
+        scrollbarStyle: "native"
+      });
+
+      function copyCode() {
+        const code = editor.getValue();
+        navigator.clipboard.writeText(code).then(function() {
+          alert('Code copied to clipboard!');
+        }).catch(function() {
+          const textarea = document.createElement('textarea');
+          textarea.value = code;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          alert('Code copied to clipboard!');
         });
+      }
+
+      function clearCode() {
+        if (confirm('Are you sure you want to clear the code?')) {
+          editor.setValue('');
+        }
+      }
     </script>
-    <script type="text/javascript" src="src/js/main.js"></script>
   </body>
 </html>
