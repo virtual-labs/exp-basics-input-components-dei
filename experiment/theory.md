@@ -17,7 +17,23 @@ Arduino contains an **Analog-to-Digital Converter (ADC)** which converts analog 
 
 #### 1. **Arduino Uno**
 
-Arduino Uno is a microcontroller board based on the ATmega328P. It acts as the main processing unit in this experiment. Arduino reads input signals from various components and converts them into digital data for processing and control.
+The Arduino Uno is an open-source microcontroller board based on the ATmega328P microcontroller. It is one of the most widely used development boards for learning embedded systems and IoT.
+
+Key Specifications:
+
+- Microcontroller: ATmega328P
+
+- Operating Voltage: 5V
+
+- Digital I/O Pins: 14 (6 PWM)
+
+- Analog Input Pins: 6
+
+- Flash Memory: 32 KB
+
+- Clock Speed: 16 MHz
+
+Arduino Uno supports both digital and analog inputs/outputs, making it suitable for interfacing sensors, actuators, and communication modules.
 
 <div><img src="./images/Arduino.png" alt="Arduino Uno" width="35%"></div>
 
@@ -36,9 +52,9 @@ The push button is connected to a digital pin of Arduino and can use either an e
 
 #### 3. **Potentiometer**
 
-A potentiometer is a variable resistor that works as a voltage divider. Rotating its knob changes the resistance, which results in a varying output voltage between 0V and 5V.
+A potentiometer is a three-terminal variable resistor that is widely used in electronic circuits to manually adjust voltage levels. It works on the principle of a voltage divider, meaning it divides the input voltage into smaller portions based on the position of its rotating shaft (knob).
 
-The middle pin of the potentiometer is connected to an analog pin of Arduino. Arduino reads this changing voltage using the `analogRead()` function, producing values from 0 to 1023.
+When the knob is rotated, the internal wiper moves along a resistive track. This movement changes the resistance between the terminals, resulting in a varying output voltage. In Arduino projects, this output voltage typically varies between 0V and 5V, depending on the supply voltage provided to the potentiometer.
 
 <div><img src="./images/potentiometer.jpg" alt="Potentiometer" width="25%"></div>
 
@@ -49,9 +65,15 @@ The middle pin of the potentiometer is connected to an analog pin of Arduino. Ar
 
 #### 4. **Slider Switch**
 
-A slider switch is a digital selector switch that provides stable ON and OFF states. It works as an SPDT (Single Pole Double Throw) switch, allowing selection between two different states.
+A slide switch is a manual electrical switch used to turn a circuit ON or OFF by sliding a small lever back and forth. It is a simple digital input device.
 
-The slider switch is connected to a digital pin of Arduino and outputs either HIGH or LOW depending on its position.
+Slide switches are commonly available in:
+
+- SPST (Single Pole Single Throw)
+
+- SPDT (Single Pole Double Throw)
+
+In Arduino projects, one terminal is connected to 5V, the other to GND, and the middle terminal is connected to a digital pin (e.g., D2). Arduino reads the state using the digitalRead() function.
 
 <div><img src="./images/sliderswitch.webp" alt="Slider Switch" width="20%"></div>
 
@@ -62,9 +84,15 @@ The slider switch is connected to a digital pin of Arduino and outputs either HI
 
 #### 5. **Photoresistor (LDR – Light Dependent Resistor)**
 
-A photoresistor or LDR changes its resistance based on the intensity of light falling on it. When light intensity increases, the resistance decreases, and when light decreases, the resistance increases.
+A Light Dependent Resistor (LDR) is a type of resistor whose resistance changes according to the intensity of light falling on it. It works on the principle of photoconductivity.
 
-The LDR is used along with a fixed resistor to form a voltage divider circuit. The output voltage is connected to an analog pin of Arduino.
+- When light intensity increases, resistance decreases
+
+- When light intensity decreases, resistance increases
+
+Since Arduino cannot directly measure resistance, the LDR is connected in a voltage divider circuit along with a fixed resistor. The output voltage from the voltage divider is then connected to an analog pin (e.g., A0) of Arduino.
+
+Arduino reads this voltage using the analogRead() function and converts it into digital values ranging from 0 to 1023.
 
 <div><img src="./images/ldr.jpg" alt="LDR Sensor" width="25%"></div>
 
