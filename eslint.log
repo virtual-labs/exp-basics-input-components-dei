@@ -1,0 +1,33 @@
+
+/home/runner/work/exp-basics-input-components-dei/exp-basics-input-components-dei/experiment/simulation/photoresistor/src/js/buzzer.js
+  22:31  error  Parsing error: Unexpected token =
+
+/home/runner/work/exp-basics-input-components-dei/exp-basics-input-components-dei/experiment/simulation/photoresistor/src/js/main.js
+  41:10  warning  'changePower' is defined but never used  no-unused-vars
+  91:10  warning  'changeImage' is defined but never used  no-unused-vars
+
+/home/runner/work/exp-basics-input-components-dei/exp-basics-input-components-dei/experiment/simulation/potentiometer/src/js/buzzer.js
+   5:10  warning  'changePowerBuzzer' is defined but never used         no-unused-vars
+  36:10  warning  'changePotentiometerImage' is defined but never used  no-unused-vars
+  37:7   warning  'image' is assigned a value but never used            no-unused-vars
+  57:10  warning  'changeBuzzerImage' is defined but never used         no-unused-vars
+
+/home/runner/work/exp-basics-input-components-dei/exp-basics-input-components-dei/experiment/simulation/potentiometer/src/js/main.js
+  41:10  warning  'changePower' is defined but never used  no-unused-vars
+  87:10  warning  'changeImage' is defined but never used  no-unused-vars
+
+/home/runner/work/exp-basics-input-components-dei/exp-basics-input-components-dei/experiment/simulation/pushbutton/src/js/main.js
+   3:10  warning  'changePower' is defined but never used  no-unused-vars
+  33:10  warning  'changeImage' is defined but never used  no-unused-vars
+
+/home/runner/work/exp-basics-input-components-dei/exp-basics-input-components-dei/experiment/simulation/slideswitch/src/js/buzzer.js
+   7:10  warning  'changePowerBuzzer' is defined but never used  no-unused-vars
+  25:10  warning  'changeBuzzerImage' is defined but never used  no-unused-vars
+  39:10  warning  'togglePlay' is defined but never used         no-unused-vars
+
+/home/runner/work/exp-basics-input-components-dei/exp-basics-input-components-dei/experiment/simulation/slideswitch/src/js/main.js
+   3:10  warning  'changePower' is defined but never used  no-unused-vars
+  33:10  warning  'changeImage' is defined but never used  no-unused-vars
+
+✖ 16 problems (1 error, 15 warnings)
+
